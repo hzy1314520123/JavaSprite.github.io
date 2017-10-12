@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>桌游精灵5</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <link rel="stylesheet" href="task-2-5.css">
+	    <script type="text/javascript" src="task-2-5.js"></script>
+	</head>
+	<body>
+		<header class="vote_head">
+		    <span class="work"></span>
+		    <span>法官台本</span>
+		    <span class="cancle"></span>
+		</header>
+		<div id="b" class="section">
+		    <div class="day">第一天</div>
+		    <div class="Process">
+		    	<span class="triangle1">◆</span>
+		    	<div class="border">
+		    		<div>
+		    			<img src="image/moon.png">
+		    			<button class="kill">凶手杀人</button>
+		    			<span class="triangle">◆</span>
+		    		</div>
+		    		<p class="kill-text"></p>
+		    		<div>
+		    			<img src="image/sun.png">
+		    			<button class="complain">亡灵发表遗言</button>
+		    			<span class="triangle">◆</span>
+		    		</div>
+		    		<div>
+		    			<button class="speak">玩家依次发言</button>
+		    			<span class="triangle">◆</span>
+		    		</div>
+		    		<div>
+		    			<button class="vote">全民投票</button>
+		    			<span class="triangle">◆</span>
+		    		</div>
+		    		<p class="vote-text"></p>
+		    	</div>
+		    </div>
+		</div>
+		<footer>
+			<button id="end">结束游戏</button>
+			<button id="diary">法官日志</button>
+		</footer>
+		<script src="jquery/jquery-3.2.1.js"></script>
+		<script src="state-machine.js"></script>
+	</body>
+</html>

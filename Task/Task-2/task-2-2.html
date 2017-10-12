@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>桌游精灵2</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <link rel="stylesheet" href="task-2-2.css">
+	    <script type="text/javascript" src="task-2-2.js"></script>
+	</head>
+	<body>
+		<header></header>
+		<section>
+			<div class="headline">
+				<p>玩家匹配</p>
+			</div>
+			<div class="distribute">
+				<div class="left"><div class="bad"></div>&nbsp;<span>杀手</span><span id="bad"> </span><span>人</span></div>
+				<div class="right"><div class="good"></div>&nbsp;<span>平民</span><span id="good"> </span><span>人</span></div>
+			</div>
+			<div class="empty"></div>
+			<div class="input">
+				<p><span class="para1">请输入玩家数量&nbsp;</span><input type="text" id="inputText"><span class="para2">&nbsp;玩家数量为4-18</span></p>
+			</div>
+			<button id="btn" class="btton">去发牌</button>
+		</section>
+		<div id="overPlay"></div>
+		<div id="box"><p>请输入正确玩家数量</p><div id="left">取消</div><div id="right">确认</div></div>
+	</body>
+</html>

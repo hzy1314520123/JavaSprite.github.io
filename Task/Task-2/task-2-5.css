@@ -1,0 +1,134 @@
+html{
+	font-size:625%;
+}
+img{
+	max-width:100%;
+}
+body{
+	font-size: 0.16rem;
+    width: 100%;
+	margin: 0rem;
+	background-color:rgba(211, 211, 211, 0.45);
+    position: relative;
+	margin-bottom:0.5rem;
+}
+.vote_head{
+	width:100%;
+	height:0.5rem;
+	color:white;
+	border-bottom:0.01rem solid white;
+	background-color:rgb(41,189,224);
+	text-align:center;
+	font-size: 0.22rem;
+    line-height: 0.55rem;
+}
+.work{
+	background-image: url(image/pic.png);
+    background-position: 0rem 1.655rem;
+    margin-top: 0.06rem;
+    width: 0.41rem;
+    height: 0.41rem;
+    margin-left: 1.5%;
+    float: left;
+    transform: scale(0.6);
+}
+.cancle{
+	background-image: url(image/pic.png);
+    background-position: 0.64rem 0rem;
+    margin-top: 0.08rem;
+    width: 0.36rem;
+    height: 0.36rem;
+    margin-right: 1.5%;
+    float: right;
+    transform: scale(0.5);
+}
+.day{
+    width: 95%;
+    height: 0.4rem;
+    margin:0.08rem 2.5%;
+    line-height: 0.4rem;
+    border:0.01rem solid lightgrey;
+    font-size:0.16rem;
+    font-weight: 600;
+    background-color: white;
+    color:#2397fd;
+    text-align: center;
+}
+.kill-text,.vote-text{
+	font-size: 0.12rem;
+    text-indent: 0.5rem;
+}
+.Process{
+    width: 95%;
+    margin:0.08rem 2.5%;
+    position: relative;
+    border:0.01rem solid lightgrey;
+    background-color: white;
+    padding-bottom: 0.2rem;
+}
+.triangle1{
+    position: absolute;
+    top: -0.45rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+    color:white;
+}
+.triangle{
+    position: absolute;
+    top: 0rem;
+    left: -0.19rem;
+    line-height: 0.37rem;
+    font-size: 0.65rem;
+    color:#07c3b0;
+}
+.border{
+    margin-top: 0.4rem;
+    margin-left: 0.5rem;
+    border-left:0.02rem solid rgba(128, 128, 128, 0.55);
+}
+.border img{
+    position: absolute;
+    top: -0.16rem;
+    left: -0.8rem;
+    transform: scale(0.5);
+}
+.border div{
+    position: relative;
+    width: 70%;
+    height: 0.4rem;
+    font-size:0.16rem;
+    margin:0rem 0rem 0.15rem 0.5rem;
+}
+.border button{
+    width: 100%;
+    height: 100%;
+    background-color: #07c3b0;
+    outline-color: #07c3b0;
+}
+footer{
+    width: 100%;
+    height:0.6rem;
+    background-color: rgb(41,189,224);
+    position:fixed;
+    left:0rem;
+    bottom:0rem;
+}
+#diary{
+    width: 40%;
+    height: 0.4rem;
+    background-color: orange;
+    border-radius: 0.1rem;
+    color:white;
+    margin:0.1rem 4.2%;
+    outline: none;
+}
+#end{
+    width: 40%;
+    height: 0.4rem;
+    background-color: orange;
+    border-radius: 0.1rem;
+    color:white;
+    margin:0.1rem 4.2%;
+    outline: none;
+}
