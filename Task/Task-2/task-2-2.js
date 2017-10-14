@@ -22,11 +22,9 @@ function shuffle(arr){
   }
   return newArr;
 }
-var arr=[];
-var bad=[];
-var good=[];
+var numBad,numGood,arr,bad,good;
 function distribute(){
-  var numBad,numGood;
+  arr=[],bad=[],good=[];
   var value=document.getElementById("inputText").value;
   var reg=/\d/g;
   if(reg.test(value)){
@@ -67,6 +65,30 @@ function distribute(){
     }
 
 }
+function listener(){
+  var myRange = document.getElementById("myRange");
+  var IN=document.getElementById("inputText");
+  var add=document.getElementById("add");
+  var reduce=document.getElementById("reduce");
+  add.addEventListener("click",function(){
+    myRange.value=parseInt(myRange.value)+1;
+    IN.value=myRange.value;
+    distribute();
+  },false);
+  reduce.addEventListener("click",function(){
+    myRange.value=myRange.value-1;
+    IN.value=myRange.value;
+    distribute();
+  },false);
+  IN.addEventListener("change",function(){
+    myRange.value=IN.value;
+    distribute();
+  },false);
+  myRange.addEventListener("change",function(){
+    IN.value=myRange.value;
+    distribute();
+  },false);
+}
 function start(){
   var IN=document.getElementById("inputText");
   var btn=document.getElementById("btn");
@@ -102,9 +124,15 @@ function start(){
     localStorage.setItem('state',state);
     localStorage.setItem('day',day);
     localStorage.setItem('kill',kill);
-    location.href="http://javasprite.com/Task/task-2/task-2-3.html"; 
+    if(numBad){
+      location.href="http://javasprite.com/Task/Task-2/task-2-3.html"; 
+    }
+    else{
+      alert("请输入玩家数！")
+    }
   },false);
 
   
-}
+}listener
 addonloadEvent(start);
+addonloadEvent(listener);

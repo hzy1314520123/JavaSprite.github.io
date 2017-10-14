@@ -25,16 +25,30 @@ function reset(){
     $(".good").html("一般般啦!你知道么？在捉鬼游戏中有80%的平民取得游戏最终的胜利哦！");
   }
   for(var i=day-1;i>=0;i--){
-    var m=parseInt(kill[0][i].slice(2));
-    var n=parseInt(kill[1][i].slice(2));
     var Diary=$(".res_box").clone(false);
     //这个是一个疑点，下面这句删掉会出问题
     Diary[0].setAttribute("class","not");
     Diary.css("display","block");
     Diary.children(".res_span1").html("第"+(i+1)+"天");
     Diary.insertAfter($(".second_part"));
-    Diary.find(".night").html("晚上："+(m+1)+"号被杀手杀死,"+"身份是"+arr[m]);
-    Diary.find(".white").html("白天："+(n+1)+"号被全民投票投死,"+"身份是"+arr[n]);
+    if(kill[0][i]){
+      var m=parseInt(kill[0][i].slice(2));
+      Diary.find(".night").html("晚上："+(m+1)+"号被杀手杀死,"+"身份是"+arr[m]);
+    }
+    if(kill[1][i]){
+      var n=parseInt(kill[1][i].slice(2));
+      Diary.find(".white").html("白天："+(n+1)+"号被全民投票投死,"+"身份是"+arr[n]);
+    }
+    if(!kill[0][i]&&!kill[1][i]){
+      Diary.children(".res_span1").html("游戏结束");
+      Diary.find(".night").html("有空再玩！");
+    }
   }
+  $(".t1").click(function(){
+    window.location.href="http://javasprite.com/Task/Task-2/Task-2-1.html";
+  });
+  $(".t2").click(function(){
+    window.location.href="https://www.javasprite.com";
+  });
 }
 addonloadEvent(reset);

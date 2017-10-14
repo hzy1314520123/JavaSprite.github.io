@@ -123,6 +123,9 @@ footer{
     margin:0.1rem 4.2%;
     outline: none;
 }
+#Diary .Process{
+    padding-top: 0.2rem;
+}
 #end{
     width: 40%;
     height: 0.4rem;

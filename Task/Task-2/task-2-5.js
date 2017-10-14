@@ -33,10 +33,15 @@ function Dear(state){
   });
 
   $(".kill").click(function () {
-        fsm.kill();
-        state=JSON.stringify(fsm.state);
-        localStorage.setItem("state",state);
-        window.location.href="http://javasprite.com/Task/task-2/task-2-6.html";
+    if(fsm.state=="none"){
+      fsm.kill();
+      state=JSON.stringify(fsm.state);
+      localStorage.setItem("state",state);
+      window.location.href="http://javasprite.com/Task/Task-2/task-2-6.html";
+    }
+    else{
+      bootbox.alert("请按游戏顺序进行步骤!");
+    }
     });
     $(".complain").click(function () {
         if(fsm.state=="killed"){
@@ -45,9 +50,9 @@ function Dear(state){
             localStorage.setItem("state",state);
             $(".complain").css("background-color","#83b09a");
             $(".complain+span").css("color","#83b09a");
-            alert("为什么要杀我");
+            bootbox.alert("为什么要杀我!");
         }else{
-            alert("请先杀人");
+            bootbox.alert("请按游戏顺序进行步骤!");
         }
 
     });
@@ -58,28 +63,20 @@ function Dear(state){
             localStorage.setItem("state",state);
             $(".speak").css("background-color","#83b09a");
             $(".speak+span").css("color","#83b09a");
-            alert("who tama cares!");
-        }else if(fsm.state=="killed"){
-            alert("请先发表遗言")
+            bootbox.alert("加油啊，我们不会让你白死的!");
         }else{
-            alert("请先杀人")
+          bootbox.alert("请按游戏顺序进行!");
         }
-
     });
     $(".vote").click(function () {
         if(fsm.state=="discussing"){
             fsm.tovote();
             state=JSON.stringify(fsm.state);
           localStorage.setItem("state",state);
-          window.location.href="http://javasprite.com/Task/task-2/task-2-6.html";
-        }else if(fsm.state=="killed"){
-            alert("请先发表遗言")
-        }else if(fsm.state=="testament"){
-            alert("请玩家先发言讨论")
+          window.location.href="http://javasprite.com/Task/Task-2/task-2-6.html";
         }else{
-            alert("请先杀人")
+          bootbox.alert("请按游戏顺序进行!");
         }
-
     });
     switch(state){
         case 'voting':
@@ -92,7 +89,7 @@ function Dear(state){
 }
 function start(){
   $("#diary").click(function(){
-    window.location.href="http://javasprite.com/Task/task-2/task-2-4.html";
+    window.location.href="http://javasprite.com/Task/Task-2/task-2-4.html";
   })
   Dear(state);
 }
@@ -100,21 +97,34 @@ function reset(){
 
 if(day>=2){
     for(var i=day-2;i>=0;i--){
-      var m=parseInt(kill[0][i].slice(2));
-      var n=parseInt(kill[1][i].slice(2));
-      var lastDay=$(".section").clone(false);
+      var lastDay=$("#Diary").clone(false);
       lastDay[0].setAttribute("class","not");
       lastDay.insertAfter($("header"));
       lastDay.find(".day").html("第"+(i+1)+"天");
-      lastDay.find(".kill-text").html((m+1)+"号被杀死,"+"身份是"+arr[m]);
-      lastDay.find(".vote-text").html((n+1)+"号被投死,"+"身份是"+arr[n]);
+      lastDay.css("display","block");
       lastDay.find(".Process").css("display","none");
+      if(kill[0][i]){
+        var m=parseInt(kill[0][i].slice(2));
+        lastDay.find(".kill-text").html("晚上："+(m+1)+"号被杀手杀死,"+"身份是"+arr[m]);
+      }
+      if(kill[1][i]){
+        var n=parseInt(kill[1][i].slice(2));
+        lastDay.find(".vote-text").html("白天："+(n+1)+"号被全民投票投死,"+"身份是"+arr[n]);
+      }
     }
     var last=$(".section").last();
     last.find(".day").html("第"+day+"天");
+    var help=true;
     $(".not").click(function(){
       $(".not").find(".Process").css("display","none");
-      $(this).find(".Process").css("display","block");
+      if(help){
+        $(this).find(".Process").css("display","block");
+        help=false;
+      }
+      else{
+        $(this).find(".Process").css("display","none");
+        help=true;
+      }
     });
   }
   if(kill[0][day-1]){

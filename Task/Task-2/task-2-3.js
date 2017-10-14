@@ -24,7 +24,7 @@ function watch(){
     Index++;
   }
     else if(Index>arr.length){
-      location.href="http://javasprite.com/Task/task-2/task-2-4.html";
+      location.href="http://javasprite.com/Task/Task-2/task-2-4.html";
     }
       else{
           if(index%2==1){

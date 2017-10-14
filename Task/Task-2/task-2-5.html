@@ -5,6 +5,7 @@
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="task-2-5.css">
 	    <script type="text/javascript" src="task-2-5.js"></script>
 	</head>
@@ -14,7 +15,7 @@
 		    <span>法官台本</span>
 		    <span class="cancle"></span>
 		</header>
-		<div id="b" class="section">
+		<div class="section">
 		    <div class="day">第一天</div>
 		    <div class="Process">
 		    	<span class="triangle1">◆</span>
@@ -42,11 +43,21 @@
 		    	</div>
 		    </div>
 		</div>
+		<div id="Diary" style="display:none;">
+		    <div class="day">第一天</div>
+		    <div class="Process">
+		    	<span class="triangle1">◆</span>
+		    	<p class="kill-text"></p>
+		    	<p class="vote-text"></p>
+		    </div>
+		</div>
 		<footer>
 			<button id="end">结束游戏</button>
 			<button id="diary">法官日志</button>
 		</footer>
 		<script src="jquery/jquery-3.2.1.js"></script>
 		<script src="state-machine.js"></script>
+		<script src="bootbox.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

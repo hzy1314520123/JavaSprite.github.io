@@ -56,14 +56,14 @@ a:hover
 }
 .next
 {
-	background-image:url("image/pic.png");
-	background-position: -0.7rem 0rem;
-	width:0.29rem;
-	height:0.50rem;
-	position: absolute;
-    right: 1%;
-    top: 1.93rem;
-	transform: scale(1);
+	background-image: url(image/pic.png);
+    background-position: -0.7rem 0rem;
+    width: 0.29rem;
+    height: 0.50rem;
+    position: absolute;
+    right: 0.4%;
+    top: 1.97rem;
+    transform: scale(0.7);
 }
 .first
 {
@@ -98,10 +98,10 @@ a:hover
 	vertical-align:middle;
 	position:relative;
 }
-.text
+.Text
 {
 	color: orange;
-    font-size: 0.210rem;
+    font-size: 0.18rem;
     line-height: 0.5rem;
     letter-spacing: 0.03rem;
 }
@@ -390,6 +390,7 @@ a:hover
 	width:100%;
 	background-color:white;
 	position:relative;
+    margin-bottom: 1rem;
 }
 .result_head
 {

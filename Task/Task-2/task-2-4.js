@@ -13,9 +13,15 @@ function addonloadEvent(func){
 }
 var arr=JSON.parse(localStorage.getItem('arr'));
 var kill=JSON.parse(localStorage.getItem('kill'));
-function add(){
+/*******动态写入页面**********/
+function Creat(){
   for(var i=0;i<arr.length;i++){
-    creat(arr[i],i);
+    var box=$(".box").clone().first();
+    box.attr("id","no"+i);
+    box.css("display","block");
+    box.find(".text").html((i+1)+"号");
+    box.find(".IDN").html(arr[i]);
+    $("#wrap").append(box);
   }
   for(var i=0;i<kill.length;i++){
       for(var j=0;j<kill[i].length;j++){
@@ -23,27 +29,13 @@ function add(){
       }
     }
 }
-function creat(m,n){
-  var wrap=document.getElementById("wrap");
-  var divBox=document.createElement("div");
-  var divBan=document.createElement("div");
-  var spanName=document.createElement("span");
-  var spanNum=document.createElement("span");
-  divBox.setAttribute("id","no"+n);
-  divBox.setAttribute("class","box");
-  divBan.setAttribute("class","grey");
-  spanNum.setAttribute("class","text");
-  spanName.innerHTML=m;
-  spanNum.innerHTML=(n+1)+"号";
-  divBan.appendChild(spanNum);
-  divBox.appendChild(spanName);
-  divBox.appendChild(divBan);
-  wrap.appendChild(divBox);
-}
 function start(){
- add();
+ Creat();
+ if(kill[0].length!=0){
+  document.getElementById("btn").innerHTML="返回";
+ }
  document.getElementById("btn").addEventListener("click",function(){
-  location.href="http://javasprite.com/Task/task-2/task-2-5.html"; 
+  location.href="http://javasprite.com/Task/Task-2/task-2-5.html"; 
  },false);
 }
 addonloadEvent(start);

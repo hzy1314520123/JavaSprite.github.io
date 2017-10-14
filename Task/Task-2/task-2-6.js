@@ -20,42 +20,17 @@ var bad=JSON.parse(localStorage.getItem('bad'));
 var good=JSON.parse(localStorage.getItem('good'));
 var day=JSON.parse(localStorage.getItem('day'));
 var killId,voteId;
+
+
 /*******动态写入页面**********/
-function creat(m,n){
-  var wrap=document.getElementById("wrap");
-  var divBox=document.createElement("div");
-  var divBan=document.createElement("div");
-  var divBouse=document.createElement("div");
-  var spanImg1=document.createElement("span");
-  var spanImg2=document.createElement("span");
-  var spanImg3=document.createElement("span");
-  var spanImg4=document.createElement("span");
-  var spanName=document.createElement("span");
-  var spanNum=document.createElement("span");
-  divBox.setAttribute("id","no"+n);
-  divBox.setAttribute("class","box");
-  divBan.setAttribute("class","grey");
-  divBouse.setAttribute("class","bouse");
-  spanImg1.setAttribute("class","img1");
-  spanImg2.setAttribute("class","img2");
-  spanImg3.setAttribute("class","img3");
-  spanImg4.setAttribute("class","img4");
-  spanNum.setAttribute("class","text");
-  spanName.innerHTML=m;
-  spanNum.innerHTML=(n+1)+"号";
-  divBan.appendChild(spanNum);
-  divBox.appendChild(spanName);
-  divBox.appendChild(divBan);
-  divBouse.appendChild(spanImg1);
-  divBouse.appendChild(spanImg2);
-  divBouse.appendChild(spanImg3);
-  divBouse.appendChild(spanImg4);
-  divBox.appendChild(divBouse);
-  wrap.appendChild(divBox);
-}
-function add(){
+function Creat(){
   for(var i=0;i<arr.length;i++){
-    creat(arr[i],i);
+    var box=$(".box").clone().first();
+    box.attr("id","no"+i);
+    box.css("display","block");
+    box.find(".text").html((i+1)+"号");
+    box.find(".IDN").html(arr[i]);
+    $("#wrap").append(box);
   }
 }
 /*******页面重置**********/
@@ -64,7 +39,7 @@ function reset(){
     $(".work+span").html("凶手杀人");
     $(".second-text").html("杀手请睁眼杀人");
     $(".prove").html("点击玩家头像，对被杀的玩家进行标记");
-    add();
+    Creat();
 
         for(var i=0;i<kill.length;i++){
       for(var j=0;j<kill[i].length;j++){
@@ -77,7 +52,7 @@ function reset(){
     $(".work+span").html("投票");
     $(".second-text").html("发言讨论结束，大家请投票");
     $(".prove").html("点击得票数最多人的头像");
-    add();
+    Creat();
 
         for(var i=0;i<kill.length;i++){
       for(var j=0;j<kill[i].length;j++){
@@ -98,11 +73,11 @@ function selection(){
           $(this).find(".bouse").css("display","block");
         }
         else{
-          alert("你不能杀自己人");
+          bootbox.alert("你不能杀自己人!");
         }
       }
       else{
-        alert("已经死了");
+        bootbox.alert("已经死了!");
       }
     });
   }
@@ -115,7 +90,7 @@ function selection(){
         $(this).find(".bouse").css("display","block");
       }
       else{
-        alert("他已经死了");
+        bootbox.alert("已经死了!");
       }
     });
   }
@@ -138,11 +113,17 @@ function confirm(){
           else{
               bad.pop();
           }
-      } 
+      }
       if(bad.length>good.length||bad.length==0){
+          day=JSON.stringify(day);
+          good=JSON.stringify(good);
+          bad=JSON.stringify(bad);
           kill=JSON.stringify(kill);
+          localStorage.setItem("day",day);
+          localStorage.setItem("good",good);
+          localStorage.setItem("bad",bad);
           localStorage.setItem('kill',kill);
-          window.location.href="http://javasprite.com/Task/task-2/task-2-7.html";
+          window.location.href="http://javasprite.com/Task/Task-2/task-2-7.html";
       }
       else{
           day=JSON.stringify(day);
@@ -153,11 +134,11 @@ function confirm(){
           localStorage.setItem("good",good);
           localStorage.setItem("bad",bad);
           localStorage.setItem('kill',kill);
-          window.location.href="http://javasprite.com/Task/task-2/task-2-5.html";
+          window.location.href="http://javasprite.com/Task/Task-2/task-2-5.html";
       }
     }
     else{
-        alert("请选择要杀的人");
+      bootbox.alert("请选择要杀的人!");
     } 
   }
   
