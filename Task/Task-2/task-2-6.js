@@ -20,6 +20,7 @@ var bad=JSON.parse(localStorage.getItem('bad'));
 var good=JSON.parse(localStorage.getItem('good'));
 var day=JSON.parse(localStorage.getItem('day'));
 var killId,voteId;
+var killConfirm=true,voteConfirm=true;
 
 
 /*******动态写入页面**********/
@@ -64,30 +65,54 @@ function reset(){
 }
 /*******点击选择要杀/投的人**********/
 function selection(){
-  if(state=="killed"){
-    $(".box").click(function(){
-      if($(this).css("background-color")!="rgb(131, 176, 151)"){
-        if($(this).children("span").html()=="平民"){
-          $(".box .bouse").css("display","none");
-          killId=$(this).attr("id");
-          $(this).find(".bouse").css("display","block");
+  if (state == "killed") {
+    $(".box").click(function(event){
+      event.preventDefault();
+        if($(this).css("background-color")!="rgb(131, 176, 151)"){
+          var confirm=false;
+            if($(this).children("span").html()=="平民"){
+                if(killConfirm){
+                    var point=$(this);
+                    bootbox.confirm("确定要杀死他吗？", function (result) { 
+                      if(result) {
+                        $(".box .bouse").css("display","none");
+                          killId=point.attr("id");
+                          point.find(".bouse").css("display","block"); 
+                          point.css("background-color","rgb(131,176,151)");
+                          killConfirm=false;
+                        }
+                    });
+                }else{
+                  bootbox.alert("一天只能杀一个人!");
+                }
+            }
+            else{
+              bootbox.alert("你不能杀自己人!");
+            }
         }
         else{
-          bootbox.alert("你不能杀自己人!");
+            bootbox.alert("已经死了!");
         }
-      }
-      else{
-        bootbox.alert("已经死了!");
-      }
     });
   }
   else if(state=="voting"){
     $(".box").click(function(){
       if($(this).css("background-color")!="rgb(131, 176, 151)"){
-        $(".box .bouse").css("display","none");
-        voteId=$(this).attr("id");
-
-        $(this).find(".bouse").css("display","block");
+        if(voteConfirm){
+            var votePoint=$(this);
+            bootbox.confirm("确定要杀死他吗？", function (result) { 
+                  if(result) {
+                      $(".box .bouse").css("display","none");
+                      voteId=votePoint.attr("id");
+                      votePoint.find(".bouse").css("display","block"); 
+                      votePoint.css("background-color","rgb(131,176,151)");
+                      voteConfirm=false;
+                  }
+            });
+        }
+        else{
+          bootbox.alert("一天只能杀一个人!");
+        }
       }
       else{
         bootbox.alert("已经死了!");

@@ -73,28 +73,30 @@ function listener(){
   add.addEventListener("click",function(){
     myRange.value=parseInt(myRange.value)+1;
     IN.value=myRange.value;
-    distribute();
   },false);
   reduce.addEventListener("click",function(){
     myRange.value=myRange.value-1;
     IN.value=myRange.value;
-    distribute();
   },false);
   IN.addEventListener("change",function(){
     myRange.value=IN.value;
-    distribute();
   },false);
   myRange.addEventListener("change",function(){
     IN.value=myRange.value;
-    distribute();
   },false);
 }
 function start(){
+  var clickSet=document.getElementById("clickSet");
   var IN=document.getElementById("inputText");
   var btn=document.getElementById("btn");
   var left=document.getElementById("left");
   var right=document.getElementById("right");
   var overPlay=document.getElementById("overPlay");
+  clickSet.addEventListener("click",function(){
+    document.getElementById("goodBox").setAttribute("style","visibility:visible;"+"padding-bottom:0.15rem;");
+    document.getElementById("badBox").setAttribute("style","visibility:visible;"+"padding-bottom:0.15rem;");
+    distribute();
+  });
   overPlay.addEventListener("click",function(){
     document.getElementById("box").style.display="none";
     document.getElementById("overPlay").style.display="none";
@@ -107,7 +109,6 @@ function start(){
     document.getElementById("box").style.display="none";
     document.getElementById("overPlay").style.display="none";
   },false);
-  IN.addEventListener("change",distribute,false);
   btn.addEventListener("click",function(){
     var state="none";
     var day=1;
@@ -128,7 +129,8 @@ function start(){
       location.href="http://javasprite.com/Task/Task-2/task-2-3.html"; 
     }
     else{
-      alert("请输入玩家数！")
+      document.getElementById("box").style.display="block";
+      document.getElementById("overPlay").style.display="block";
     }
   },false);
 

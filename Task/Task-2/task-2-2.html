@@ -30,26 +30,26 @@
 				    	<div class="row">
 				    		<div class="col-xs-6">
 						        <div class="row">
-							        <div class="col-xs-12"><div class="Qbox"></div>&nbsp;&nbsp;杀&nbsp;&nbsp;&nbsp;&nbsp;手:1名</div>
-							        <div class="col-xs-12"><div class="Qbox"></div>&nbsp;&nbsp;医&nbsp;&nbsp;&nbsp;&nbsp;生:1名</div>
-						      	    <div class="col-xs-12"><div class="Qbox"></div>&nbsp;&nbsp;警&nbsp;&nbsp;&nbsp;&nbsp;察:1名</div>
-							        <div class="col-xs-12"><div class="Qbox"></div>&nbsp;&nbsp;狙击手:1名</div>
-							        <div class="col-xs-12 bad"><div class="Qbox"></div>&nbsp;&nbsp;杀&nbsp;&nbsp;&nbsp;&nbsp;手:
+								    <div id="badBox" class="col-xs-12"><div class="Qbox"></div>&nbsp;&nbsp;杀&nbsp;手:
 							        <span id="bad">1</span>名</div>
+							        <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							        <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						      	    <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							        <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>						        
 						        </div>
 					        </div>
 					        <div class="col-xs-6">
 					      	    <div class="row">
-							        <div class="col-xs-12"><div class="Sbox"></div>&nbsp;&nbsp;平&nbsp;&nbsp;&nbsp;&nbsp;民:1名</div>
-					      		    <div class="col-xs-12"><div class="Sbox"></div>&nbsp;&nbsp;医&nbsp;&nbsp;&nbsp;&nbsp;生:1名</div>
-					      		    <div class="col-xs-12"><div class="Sbox"></div>&nbsp;&nbsp;警&nbsp;&nbsp;&nbsp;&nbsp;察:1名</div>
-							        <div class="col-xs-12"><div class="Sbox"></div>&nbsp;&nbsp;狙击手:1名</div>
-					      		    <div class="col-xs-12 good"><div class="Sbox"></div>&nbsp;&nbsp;平&nbsp;&nbsp;&nbsp;&nbsp;民:
+								    <div id="goodBox" class="col-xs-12"><div class="Sbox"></div>&nbsp;&nbsp;平&nbsp;民:
 					      		    <span id="good">1</span>名</div>
+							        <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					      		    <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					      		    <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							        <div class="col-xs-12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 						        </div>
 					        </div>
-					        <div class="col-xs-12 clickSet">
-				    	        <span>点击设置&nbsp;&nbsp;<img src="image/pencil.png"></span>
+					        <div id="clickSet" class="col-xs-12">
+				    	        <span id="setNum">点击设置&nbsp;&nbsp;<img src="image/pencil.png"></span>
 				            </div>
 				    	</div>
 				    </div>
@@ -68,10 +68,10 @@
 			<div class="container input">
 				<div class="row">
 					<div class="col-xs-12">
-						<p><span class="para1">玩家人数&nbsp;</span><input type="text" id="inputText"><span class="para2">&nbsp;人</span></p>
+						<p><span class="para1">玩家人数&nbsp;</span><input type="text" id="inputText" value="4"><span class="para2">&nbsp;人</span></p>
 						<div class="myRange">
 						    <input type="button" id="reduce" value="-">
-						    <input id="myRange" type="range" max=18 min=4 step=1>
+						    <input id="myRange" type="range" max="18" min="4" step="1" value="4">
 						    <input type="button" id="add" value="+">
 					    </div>
 					</div>
@@ -86,7 +86,7 @@
 			</div>
 		</section>
 		<div id="overPlay"></div>
-		<div id="box"><p>请输入正确玩家数量</p><div id="left">取消</div><div id="right">确认</div></div>
+		<div id="box"><p>请先正确设置玩家数量！</p><div id="left">取消</div><div id="right">确认</div></div>
 		<script src="jquery/jquery-3.2.1.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>

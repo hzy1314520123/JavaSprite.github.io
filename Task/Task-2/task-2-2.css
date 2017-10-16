@@ -3,10 +3,6 @@ html
 	font-size:625%;
 	height: 100%
 }
-img
-{
-	max-width:100%;
-}
 body{
 	background-color:rgba(211, 211, 211, 0.42);
 	margin:0rem;
@@ -77,13 +73,16 @@ ul,li{
 	margin:0rem;
 	padding: 0rem;
 }
-.clickSet{
+#clickSet{
 	font-size:0.16rem;
 	color:#33cccc;
 	font-weight:600;
 	text-align: center;
 	padding: 0.1rem 0rem;
 	border-top:0.01rem solid lightgrey;
+}
+#clickSet:hover{
+	cursor:pointer;
 }
 .headline{
 	margin: 0.1rem 2%;
@@ -128,7 +127,7 @@ ul,li{
 #inputText{
 	background-color: rgba(211, 211, 211, 0.7);
 	text-align: center;
-	width: 0.2rem;
+	width: 0.3rem;
 	border:none;
 	border-radius: 0.03rem;
 	color: orange;
@@ -139,6 +138,25 @@ ul,li{
 	position: relative;
 	margin-bottom: 0.2rem;
 }
+/*横条样式*/  
+input[type=range] {  
+  -webkit-appearance: none;/*清除系统默认样式*/  
+  width: 100%;
+  outline:none;  
+  background: -webkit-linear-gradient(orange,orange) no-repeat, blue;/*设置左边颜色为#61bd12，右边颜色为#ddd*/  
+  background-size: 100% 100%;/*设置左右宽度比例*/  
+  height: 0.03rem;/*横条的高度*/  
+}  
+/*拖动块的样式*/  
+input[type=range]::-webkit-slider-thumb {  
+  -webkit-appearance: none;/*清除系统默认样式*/  
+  height: 0.23rem;/*拖动块高度*/  
+  width: 0.37rem;/*拖动块宽度*/  
+  background-image: url(image/btn.png);/*拖动块背景*/
+  background-size:contain; 
+  border-radius:0.05rem;  
+  border: solid 1px #ddd; /*设置边框*/  
+}  
 #reduce{
 	border: 0.01rem solid lightgrey;
     width: 0.2rem;
@@ -193,10 +211,12 @@ ul,li{
 	width: 100%;
 	height: 0.5rem;
 }
-.bad{
+#badBox{
+	visibility:hidden;
 	padding-bottom: 0.15rem;
 }
-.good{
+#goodBox{
+	visibility:hidden;
 	padding-bottom: 0.15rem;
 }
 #overPlay{
